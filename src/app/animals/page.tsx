@@ -222,6 +222,98 @@ function AnimalCard({ animal, index }: AnimalCardProps) {
     Adopted: 'bg-blue-100 text-blue-800',
   };
 
+  // Generate a dynamic image URL based on animal attributes
+  const getAnimalImageUrl = () => {
+    if (animal.photos) {
+      return animal.photos;
+    }
+
+    // Curated list of animal photos from Unsplash - organized by species
+    const animalImages = {
+      dog: [
+        'photo-1587300003388-59208cc962cb',
+        'photo-1601758228041-f3b2795255f1',
+        'photo-1583511655857-d19b40a7a54e',
+        'photo-1548199973-03cce0bbc87b',
+        'photo-1534361960057-19889db9621e',
+        'photo-1537151608828-ea2b11777ee8',
+        'photo-1543466835-00a7907e9de1',
+        'photo-1558788353-f76d92427f16',
+        'photo-1477884213360-7e9d7dcc1e48',
+        'photo-1552053831-71594a27632d'
+      ],
+      cat: [
+        'photo-1514888286974-6c03e2ca1dba',
+        'photo-1574158622682-e40e69881006',
+        'photo-1573865526739-10c1dd7e8e8c',
+        'photo-1495360010541-f48722b34f7d',
+        'photo-1519052537078-e6302a4968d4',
+        'photo-1511044568932-338cba0ad803',
+        'photo-1529778873920-4da4926a72c2',
+        'photo-1542652694-40abf526446e',
+        'photo-1533738363-b7f9aef128ce',
+        'photo-1478098711619-5ab0b478d6e6'
+      ],
+      rabbit: [
+        'photo-1585110396000-c9ffd4e4b308',
+        'photo-1535241749838-299277b6305f',
+        'photo-1580561184820-8c86e5c6b8f8',
+        'photo-1606425271394-c3ca9aa1696c',
+        'photo-1558865869-c9c5c8b54fe6',
+        'photo-1518796745738-41048802f99a',
+        'photo-1559827260-dc66d52bef19',
+        'photo-1612528443702-f6741f70a049',
+        'photo-1538268029259-09f6da8e5742',
+        'photo-1518791841217-8f162f1e1131'
+      ],
+      bird: [
+        'photo-1552728089-57bdde30beb3',
+        'photo-1444464666168-49d633b86797',
+        'photo-1570262790473-3609850f8e69',
+        'photo-1552728089-57bdde30beb3',
+        'photo-1525523958073-31fc82b0e7f5',
+        'photo-1611689342806-0863700ce1e4',
+        'photo-1552728089-57bdde30beb3',
+        'photo-1559827260-dc66d52bef19',
+        'photo-1582377909774-b97efc94793e',
+        'photo-1559235038-1b0faab8e997'
+      ],
+      other: [
+        'photo-1425082661705-1834bfd09dca',
+        'photo-1535591273668-578e31182c4f',
+        'photo-1556909114-f6e7ad7d3136',
+        'photo-1452857297128-d9c29adba80b',
+        'photo-1544735716-392fe2489ffa',
+        'photo-1560743173-567a0b5d1def',
+        'photo-1484406566174-9da000fda645',
+        'photo-1558788353-f76d92427f16',
+        'photo-1444212477490-ca407925329e',
+        'photo-1415369629372-26f2fe60c467'
+      ]
+    };
+
+    // Get species-specific images or default to 'other'
+    const species = animal.species?.toLowerCase() || 'other';
+    const imageList = animalImages[species as keyof typeof animalImages] || animalImages.other;
+
+    // Use animal ID to consistently pick the same image
+    const seed = animal.animalId || animal.name || '0';
+    const hashCode = (str: string) => {
+      let hash = 0;
+      for (let i = 0; i < str.length; i++) {
+        const char = str.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash;
+      }
+      return Math.abs(hash);
+    };
+
+    const imageIndex = hashCode(String(seed)) % imageList.length;
+    const photoId = imageList[imageIndex];
+
+    return `https://images.unsplash.com/${photoId}?auto=format&fit=crop&w=400&h=300&q=80`;
+  };
+
   return (
     <motion.div
       className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
@@ -231,16 +323,21 @@ function AnimalCard({ animal, index }: AnimalCardProps) {
       whileHover={{ y: -2 }}
     >
       {/* Photo */}
-      <div className="h-48 bg-gradient-to-br from-sanctuary-primary-200 to-sanctuary-nature-200 flex items-center justify-center">
-        {animal.photos ? (
-          <img 
-            src={animal.photos} 
-            alt={animal.name}
-            className="w-full h-full object-cover"
-          />
-        ) : (
-          <Heart className="h-12 w-12 text-sanctuary-primary-400" />
-        )}
+      <div className="h-48 bg-gradient-to-br from-sanctuary-primary-200 to-sanctuary-nature-200 flex items-center justify-center overflow-hidden">
+        <img
+          src={getAnimalImageUrl()}
+          alt={`${animal.name} - ${animal.species}`}
+          className="w-full h-full object-cover"
+          onError={(e) => {
+            // Fallback to heart icon if image fails to load
+            const target = e.target as HTMLImageElement;
+            target.style.display = 'none';
+            const parent = target.parentElement;
+            if (parent) {
+              parent.innerHTML = '<svg class="h-12 w-12 text-sanctuary-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>';
+            }
+          }}
+        />
       </div>
 
       {/* Content */}

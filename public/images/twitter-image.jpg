@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600">
+  <rect width="1200" height="600" fill="#CD7F32"/>
+
+  <!-- Paw print logo -->
+  <g fill="#FFF">
+    <ellipse cx="600" cy="300" rx="35" ry="45"/>
+    <ellipse cx="550" cy="255" rx="22" ry="27" transform="rotate(-20 550 255)"/>
+    <ellipse cx="577" cy="242" rx="22" ry="27" transform="rotate(-5 577 242)"/>
+    <ellipse cx="623" cy="242" rx="22" ry="27" transform="rotate(5 623 242)"/>
+    <ellipse cx="650" cy="255" rx="22" ry="27" transform="rotate(20 650 255)"/>
+  </g>
+
+  <text x="600" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#FFF">
+    Paws &amp; Hearts
+  </text>
+  <text x="600" y="455" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#FFF" opacity="0.9">
+    Animal Sanctuary
+  </text>
+</svg>

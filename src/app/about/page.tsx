@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { 
   Heart, Users, Shield, Award, MapPin, Phone, Mail, 
   Clock, TreePine, Home, Stethoscope, GraduationCap,
@@ -50,28 +51,28 @@ export default function AboutPage() {
       role: "Veterinary Director",
       experience: "12 years",
       specialization: "Emergency care & surgery",
-      image: null
+      image: "photo-1559839734-2b71ea197ec2"
     },
     {
       name: "Michael Rodriguez",
       role: "Operations Manager",
       experience: "8 years",
       specialization: "Facility management & logistics",
-      image: null
+      image: "photo-1472099645785-5658abf4ff4e"
     },
     {
       name: "Emily Chen",
       role: "Adoption Coordinator",
       experience: "6 years",
       specialization: "Behavioral assessment & matching",
-      image: null
+      image: "photo-1438761681033-6461ffad8d80"
     },
     {
       name: "James Thompson",
       role: "Volunteer Director",
       experience: "10 years",
       specialization: "Training & community outreach",
-      image: null
+      image: "photo-1500648767791-00dcc994a43e"
     }
   ];
 
@@ -288,10 +289,20 @@ export default function AboutPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 1.6 + index * 0.1 }}
               >
-                {/* Photo placeholder */}
-                <div className="h-64 bg-gradient-to-br from-sanctuary-primary-200 to-sanctuary-care-200 flex items-center justify-center">
-                  <Users className="h-16 w-16 text-sanctuary-primary-400" />
-                </div>
+                {/* Team member photo */}
+                {member.image ? (
+                  <Image
+                    src={`https://images.unsplash.com/${member.image}?auto=format&fit=crop&w=400&h=400&q=80`}
+                    alt={`${member.name} - ${member.role}`}
+                    width={400}
+                    height={400}
+                    className="h-64 w-full object-cover"
+                  />
+                ) : (
+                  <div className="h-64 bg-gradient-to-br from-sanctuary-primary-200 to-sanctuary-care-200 flex items-center justify-center">
+                    <Users className="h-16 w-16 text-sanctuary-primary-400" />
+                  </div>
+                )}
                 
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-sanctuary-primary-800 mb-2">

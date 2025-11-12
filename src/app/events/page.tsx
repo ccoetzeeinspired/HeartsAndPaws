@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import {
   Calendar, MapPin, Clock, Users, Heart,
@@ -28,7 +29,7 @@ export default function EventsPage() {
       type: 'adoption',
       capacity: 100,
       registered: 45,
-      image: null
+      image: 'photo-1450778869180-41d0601e046e'
     },
     {
       id: 2,
@@ -41,7 +42,7 @@ export default function EventsPage() {
       type: 'volunteer',
       capacity: 30,
       registered: 22,
-      image: null
+      image: 'photo-1516734212186-a967f81ad0d7'
     },
     {
       id: 3,
@@ -54,7 +55,7 @@ export default function EventsPage() {
       type: 'fundraiser',
       capacity: 200,
       registered: 156,
-      image: null
+      image: 'photo-1511795409834-ef04bbd61622'
     },
     {
       id: 4,
@@ -67,7 +68,7 @@ export default function EventsPage() {
       type: 'education',
       capacity: 40,
       registered: 28,
-      image: null
+      image: 'photo-1581888227599-779811939961'
     },
     {
       id: 5,
@@ -80,7 +81,7 @@ export default function EventsPage() {
       type: 'volunteer',
       capacity: 25,
       registered: 18,
-      image: null
+      image: 'photo-1548199973-03cce0bbc87b'
     },
     {
       id: 6,
@@ -93,7 +94,7 @@ export default function EventsPage() {
       type: 'education',
       capacity: 80,
       registered: 42,
-      image: null
+      image: 'photo-1601758125946-6ec2ef64daf8'
     }
   ];
 
@@ -221,10 +222,20 @@ export default function EventsPage() {
                 transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
                 data-testid={`event-card-${event.id}`}
               >
-                {/* Event Image Placeholder */}
-                <div className="h-48 bg-gradient-to-br from-sanctuary-primary-200 to-sanctuary-nature-200 flex items-center justify-center">
-                  <Calendar className="h-16 w-16 text-sanctuary-primary-400" />
-                </div>
+                {/* Event Image */}
+                {event.image ? (
+                  <Image
+                    src={`https://images.unsplash.com/${event.image}?auto=format&fit=crop&w=600&h=400&q=80`}
+                    alt={event.title}
+                    width={600}
+                    height={400}
+                    className="h-48 w-full object-cover"
+                  />
+                ) : (
+                  <div className="h-48 bg-gradient-to-br from-sanctuary-primary-200 to-sanctuary-nature-200 flex items-center justify-center">
+                    <Calendar className="h-16 w-16 text-sanctuary-primary-400" />
+                  </div>
+                )}
 
                 {/* Event Content */}
                 <div className="p-6">

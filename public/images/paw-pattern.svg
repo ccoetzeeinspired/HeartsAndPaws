@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <g id="paw">
+      <!-- Main pad -->
+      <ellipse cx="50" cy="60" rx="8" ry="10" fill="currentColor"/>
+      <!-- Toe pads -->
+      <ellipse cx="38" cy="48" rx="5" ry="6" transform="rotate(-20 38 48)" fill="currentColor"/>
+      <ellipse cx="46" cy="44" rx="5" ry="6" transform="rotate(-5 46 44)" fill="currentColor"/>
+      <ellipse cx="54" cy="44" rx="5" ry="6" transform="rotate(5 54 44)" fill="currentColor"/>
+      <ellipse cx="62" cy="48" rx="5" ry="6" transform="rotate(20 62 48)" fill="currentColor"/>
+    </g>
+  </defs>
+
+  <!-- Repeating pattern -->
+  <use href="#paw" x="0" y="0" opacity="0.15"/>
+  <use href="#paw" x="100" y="50" opacity="0.15"/>
+  <use href="#paw" x="50" y="100" opacity="0.15"/>
+  <use href="#paw" x="150" y="150" opacity="0.15"/>
+  <use href="#paw" x="0" y="150" opacity="0.15"/>
+  <use href="#paw" x="100" y="0" opacity="0.15"/>
+</svg>

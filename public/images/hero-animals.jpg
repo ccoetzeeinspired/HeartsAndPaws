@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#CD7F32;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#8B4513;stop-opacity:0.9" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg)"/>
+
+  <!-- Paw prints decorative -->
+  <g opacity="0.2" fill="#FFF">
+    <ellipse cx="200" cy="150" rx="30" ry="40"/>
+    <ellipse cx="160" cy="110" rx="18" ry="24"/>
+    <ellipse cx="190" cy="95" rx="18" ry="24"/>
+    <ellipse cx="210" cy="95" rx="18" ry="24"/>
+    <ellipse cx="240" cy="110" rx="18" ry="24"/>
+
+    <ellipse cx="900" cy="600" rx="30" ry="40"/>
+    <ellipse cx="860" cy="560" rx="18" ry="24"/>
+    <ellipse cx="890" cy="545" rx="18" ry="24"/>
+    <ellipse cx="910" cy="545" rx="18" ry="24"/>
+    <ellipse cx="940" cy="560" rx="18" ry="24"/>
+  </g>
+
+  <!-- Text placeholder -->
+  <text x="600" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" fill="#FFF" opacity="0.9">
+    Hero Animals Image
+  </text>
+  <text x="600" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#FFF" opacity="0.7">
+    Replace with photos from Unsplash or Pexels
+  </text>
+</svg>

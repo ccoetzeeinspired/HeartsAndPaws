@@ -62,7 +62,7 @@ export default function HomePage() {
             <div className="relative animate-slide-in">
               <div className="relative rounded-3xl overflow-hidden shadow-large">
                 <Image
-                  src="/images/hero-animals.jpg"
+                  src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&w=1200&h=1000&q=80"
                   alt="Happy rescued animals at Paws & Hearts Sanctuary"
                   width={600}
                   height={500}
@@ -244,7 +244,7 @@ export default function HomePage() {
 
             <div className="relative">
               <Image
-                src="/images/mission-collage.jpg"
+                src="https://images.unsplash.com/photo-1415369629372-26f2fe60c467?auto=format&fit=crop&w=1200&h=1000&q=80"
                 alt="Our mission in action - caring for animals"
                 width={600}
                 height={500}

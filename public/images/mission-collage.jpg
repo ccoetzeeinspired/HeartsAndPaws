@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="mission-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B4513;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#CD7F32;stop-opacity:0.9" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#mission-bg)"/>
+
+  <!-- Grid pattern -->
+  <g opacity="0.1" stroke="#FFF" stroke-width="2" fill="none">
+    <rect x="50" y="50" width="330" height="220"/>
+    <rect x="420" y="50" width="330" height="220"/>
+    <rect x="50" y="310" width="330" height="220"/>
+    <rect x="420" y="310" width="330" height="220"/>
+  </g>
+
+  <!-- Heart icons -->
+  <g opacity="0.3" fill="#FFF">
+    <path d="M 150,150 C 150,130 130,120 115,120 C 100,120 90,130 90,150 C 90,170 150,200 150,200 C 150,200 210,170 210,150 C 210,130 200,120 185,120 C 170,120 150,130 150,150 Z"/>
+    <path d="M 550,400 C 550,380 530,370 515,370 C 500,370 490,380 490,400 C 490,420 550,450 550,450 C 550,450 610,420 610,400 C 610,380 600,370 585,370 C 570,370 550,380 550,400 Z"/>
+  </g>
+
+  <!-- Text placeholder -->
+  <text x="400" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" fill="#FFF" opacity="0.9">
+    Mission Collage
+  </text>
+  <text x="400" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#FFF" opacity="0.7">
+    Replace with animal sanctuary photos
+  </text>
+</svg>

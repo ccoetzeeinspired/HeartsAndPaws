@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="45" fill="#CD7F32"/>
+  <g fill="#FFF">
+    <!-- Paw print -->
+    <!-- Main pad -->
+    <ellipse cx="50" cy="60" rx="12" ry="15"/>
+    <!-- Toe pads -->
+    <ellipse cx="35" cy="45" rx="7" ry="9" transform="rotate(-20 35 45)"/>
+    <ellipse cx="45" cy="40" rx="7" ry="9" transform="rotate(-5 45 40)"/>
+    <ellipse cx="55" cy="40" rx="7" ry="9" transform="rotate(5 55 40)"/>
+    <ellipse cx="65" cy="45" rx="7" ry="9" transform="rotate(20 65 45)"/>
+  </g>
+</svg>
